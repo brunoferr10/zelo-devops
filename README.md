@@ -58,21 +58,16 @@ git clone https://github.com/brunoferr10/zelo-devops.git
 cd zelo-devops
 ```
 
-## 7. Teste local antes da nuvem
+## 7. Validação local opcional
+
+Esta etapa é apenas uma validação opcional para desenvolvimento e não representa o ambiente de entrega. A demonstração oficial, os testes do CRUD e a comprovação de persistência devem utilizar exclusivamente os recursos publicados na Azure.
 
 ```bash
 cp .env.example .env
-# Edite somente o .env local e defina senhas fortes.
 docker compose up --build -d
 docker compose ps
-curl http://localhost:8080/actuator/health
-curl http://localhost:8080/api/pets
-curl http://localhost:8080/api/cuidados
+docker compose down
 ```
-
-Swagger local: `http://localhost:8080/swagger-ui.html`.
-
-Para encerrar sem apagar o volume: `docker compose down`. Para apagar também os dados do teste local: `docker compose down -v`.
 
 ## 8. Deploy completo na Azure via CLI
 
@@ -128,7 +123,8 @@ curl "http://${APP_FQDN}:8080/api/pets"
 curl "http://${APP_FQDN}:8080/api/cuidados"
 ```
 
-Swagger na nuvem: `http://FQDN-RETORNADO:8080/swagger-ui.html`.
+Swagger público na Azure:  
+`http://rm563489-zelo-app.canadacentral.azurecontainer.io:8080/swagger-ui/index.html`
 
 ## 9. CRUD completo
 
