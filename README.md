@@ -48,8 +48,6 @@ docker-compose.yml                validação local antes do envio à nuvem
 - permissão para criar ACR, ACI, Storage e Key Vault;
 - portas locais 8080 e 3306 livres para o teste local.
 
-> Execute os comandos na raiz do repositório. Não crie nem envie um arquivo `.env` com senhas reais ao GitHub.
-
 
 ## 6. Clone obrigatório
 
